@@ -36,3 +36,7 @@ let croppedCanvas = mediaCropper.cropMedia(document.getElementById('pic'), {
 });
 ```
 
+##Demo
+
+[Click](http://matthiasklan.github.io/mediacropper/)
+
