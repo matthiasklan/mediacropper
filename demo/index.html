@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+   <meta name="author" content="Matthias Klan">
+    <title>CanvasStreamer Demo | Client</title>
+  </head>
+
+  <body>
+    Drag a rect over the picture for cropping
+    <img id="pic" src="http://gallery.photo.net/photo/9427655-lg.jpg" alt="randomPic">
+    <div id="cropped"></div>
+    <script src="../dist/media-cropper.js"></script>
+    <script>
+      var mediaCropper = new MediaCropper(document.getElementById('pic'));
+      mediaCropper.on('cropped', (croppedCanvas)=>{
+        const cropped = document.getElementById('cropped');
+        cropped.innerHTML = '';
+        cropped.appendChild(croppedCanvas);
+      });
+    </script>
+  </body>
+</html>
