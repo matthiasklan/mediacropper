@@ -14,10 +14,10 @@
     <script src="../dist/media-cropper.js"></script>
     <script>
       var mediaCropper = new MediaCropper(document.getElementById('pic'));
-      mediaCropper.on('cropped', (croppedCanvas)=>{
-        const cropped = document.getElementById('cropped');
+      mediaCropper.on('cropped', function(result){
+        var cropped = document.getElementById('cropped');
         cropped.innerHTML = '';
-        cropped.appendChild(croppedCanvas);
+        cropped.appendChild(result.croppedCanvas);
       });
     </script>
   </body>

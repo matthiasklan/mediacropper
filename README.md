@@ -17,8 +17,8 @@ const mediaCropper = new MediaCropper(document.getElementById('pic'));
 listen to the `cropped` event to get the cropped part in form of a canvas object
 
 ```javascript
-mediaCropper.on('cropped', (croppedCanvas)=>{
-  document.body.appendChild(croppedCanvas);
+mediaCropper.on('cropped', (result)=>{
+  document.body.appendChild(result.croppedCanvas);
 });
 ```
 
@@ -35,6 +35,9 @@ let croppedCanvas = mediaCropper.cropMedia(document.getElementById('pic'), {
     height = 100
 });
 ```
+
+you can access the dimension data (position and size) through `result.dimensions`. if the media
+was a video you get the current time via `result.currentTime`
 
 ##Demo
 
