@@ -26,7 +26,7 @@ alternatively you can create an instance without providing a source. In this cas
 
 ```javascript
 const mediaCropper = new MediaCropper();
-let croppedCanvas = mediaCropper.cropMedia(document.getElementById('pic'), {
+let result = mediaCropper.cropMedia(document.getElementById('pic'), {
     stretch: 0.5, //you can stretch the result
     //and the position variables for the area to be cropped out
     left = 0,
