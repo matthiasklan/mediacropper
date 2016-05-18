@@ -5,7 +5,16 @@ client-side cropping of media (images,video,canvas)
 
 `npm install mediacropper`
 
+and
+import it using ES6 via
+
+```javascript
+import 'mediacropper';
+const MediaCropper = window['MediaCropper'];
+```
+
 or import the js file in the dist folder via `<script>`-tag
+
 
 ## usage
 create a new instance of MediaCropper. If you provide a media object, you will be able to draw a selection rectangle in the corresponding dom-element in order to crop out the selection.
@@ -36,8 +45,9 @@ let result = mediaCropper.cropMedia(document.getElementById('pic'), {
 });
 ```
 
-you can access the dimension data (position and size) through `result.dimensions`. if the media
-was a video you get the current time via `result.currentTime`
+you can access the dimension data (position and size) through `result.dimensions`. if the source
+ist a video you get the current time via `result.currentTime`
+
 
 ##Demo
 

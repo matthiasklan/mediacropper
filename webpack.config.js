@@ -20,6 +20,10 @@ module.exports = {
   },
   module: {
     loaders: [
+      {
+        test: /\.css$/, // Only .css files
+        loader: 'style!css' // Run both loaders
+      },
      {
       test: /\.jsx?$/,
       exclude: /(node_modules|bower_components)/,
@@ -28,7 +32,16 @@ module.exports = {
         presets: ['es2015', 'stage-0'],
         plugins: ['transform-class-properties', 'transform-decorators-legacy'],
       }
-    }
+    },
+      {
+        //images
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+          //  'url-loader?limit=8192',
+          'file?hash=sha512&digest=hex&name=img/[hash].[ext]',
+          'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ]
+      },
   ]
   },
   plugins: debug ? [definePlugin] : [
