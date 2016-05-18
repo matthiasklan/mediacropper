@@ -38,10 +38,10 @@ const mediaCropper = new MediaCropper();
 let result = mediaCropper.cropMedia(document.getElementById('pic'), {
     stretch: 0.5, //you can stretch the result
     //and the position variables for the area to be cropped out
-    left = 0,
-    top = 0,
-    width = 100,
-    height = 100
+    left: 0,
+    top: 0,
+    width: 100,
+    height: 100
 });
 ```
 
