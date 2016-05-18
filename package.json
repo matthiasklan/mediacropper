@@ -1,8 +1,8 @@
 {
   "name": "mediacropper",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "client-side cropping of media (images,video,canvas) ",
-  "main": "/src/media-cropper.js",
+  "main": "./dist/media-cropper.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "set NODE_ENV=development&&webpack-dev-server --port 8080 --content-base dist --inline --hot --progress --colors",
