@@ -13,6 +13,8 @@ export default class MediaCropper extends EventEmitter {
 
         if (!media) return;
 
+        let isVideo; //variable init
+
         //if you provide media into the constuctor, you will be provided with a drag and drop seclection rectangle in your media
 
         const fabricHelperCanvas = document.createElement('canvas');
@@ -24,8 +26,6 @@ export default class MediaCropper extends EventEmitter {
         fabricHelperCanvas.style.left = 0;
         // fabricHelperCanvas.style.backgroundColor = 'green';
         // fabricHelperCanvas.style.opacity = 0.5;
-
-
 
         const croppingCanvas = document.createElement('canvas');
 
@@ -59,8 +59,21 @@ export default class MediaCropper extends EventEmitter {
         wrapper.appendChild(croppingCanvas);
         wrapper.appendChild(fabricHelperCanvas);
 
+        //if media is video, make the canvas space smaller for player controls!
+
+        if(media.tagName.toLowerCase() === 'video'){
+            isVideo = true;
+        }
+
+        if(isVideo){
+            fabricHelperCanvas.style.height = (fabricHelperCanvas.clientHeight-30) + 'px';
+            croppingCanvas.height = media.clientHeight-30;
+        }
+
+
         var fabricHelperCanvasHeight = fabricHelperCanvas.clientHeight;
         var fabricHelperCanvasWidth = fabricHelperCanvas.clientWidth;
+
 
         //fabric.js for dragging and scaling
         const canvas = new fabric.Canvas(fabricHelperCanvas, { selection: false });
@@ -74,6 +87,11 @@ export default class MediaCropper extends EventEmitter {
         let rect, finalRect, isDown, rectDrawn, origX, origY;
 
         canvas.on('mouse:down', (o)=>{
+
+            if(isVideo){
+                media.pause();
+            }
+
             //if you click outside the rectangle, removeSelection
             if(rectDrawn && !o.target){
                 removeSelection();
