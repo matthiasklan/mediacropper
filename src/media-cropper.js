@@ -92,10 +92,6 @@ export default class MediaCropper extends EventEmitter {
                 media.pause();
             }
 
-            //if you click outside the rectangle, removeSelection
-            if(rectDrawn && !o.target){
-                removeSelection();
-            }
             if(rectDrawn) return;
             isDown = true;
             let pointer = canvas.getPointer(o.e);
@@ -137,6 +133,11 @@ export default class MediaCropper extends EventEmitter {
         canvas.on('mouse:up', (o)=>{
             isDown = false;
 
+            //if you click outside the rectangle, removeSelection
+            if(rectDrawn && !o.target){
+                removeSelection();
+                return;
+            }
 
             //replace with new rectangle, because the dragged one cannot be moved or scaled!!! why
             // ?!?!
@@ -237,7 +238,7 @@ export default class MediaCropper extends EventEmitter {
         result.croppedCanvas = croppedCanvas;
         result.dimensions = {
             left, top, width, height
-        }
+        };
 
         //if it is a video
         if(media.currentTime){
