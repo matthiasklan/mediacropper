@@ -232,16 +232,9 @@ export default class MediaCropper extends EventEmitter {
 
         function handleConfirmClick(ctx){
             //crop
-            const offsetTop = media.offsetTop;
-            const offsetLeft = media.offsetLeft;
-            let scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
-            let scrollLeft = document.body.scrollLeft || document.documentElement.scrollLeft;
-            scrollTop -= offsetTop;
-            scrollLeft -= offsetLeft;
-
             ctx.cropMedia(media, {
-                left: finalRect.getLeft() + scrollLeft,
-                top: finalRect.getTop() + scrollTop,
+                left: finalRect.getLeft(),
+                top: finalRect.getTop(),
                 width: finalRect.getWidth(),
                 height: finalRect.getHeight()
             });

@@ -1,6 +1,6 @@
 {
   "name": "mediacropper",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "client-side cropping of media (images,video,canvas) ",
   "main": "./dist/media-cropper.js",
   "scripts": {
