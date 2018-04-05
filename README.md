@@ -1,7 +1,7 @@
 # mediacropper
 client-side cropping of media (images,video,canvas)
 
-##install
+## install
 
 `npm install mediacropper`
 
