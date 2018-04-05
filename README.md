@@ -26,7 +26,7 @@ const mediaCropper = new MediaCropper(document.getElementById('pic'));
 listen to the `cropped` event to get the cropped part in form of a canvas object
 
 ```javascript
-mediaCropper.on('cropped', (result)=>{
+mediaCropper.on('cropped', (result) => {
   document.body.appendChild(result.croppedCanvas);
 });
 ```
@@ -35,7 +35,7 @@ alternatively you can create an instance without providing a source. In this cas
 
 ```javascript
 const mediaCropper = new MediaCropper();
-let result = mediaCropper.cropMedia(document.getElementById('pic'), {
+const result = mediaCropper.cropMedia(document.getElementById('pic'), {
     stretch: 0.5, //you can stretch the result
     //and the position variables for the area to be cropped out
     left: 0,
