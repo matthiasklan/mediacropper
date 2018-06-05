@@ -1,6 +1,10 @@
 # mediacropper
 client-side cropping of media (images,video,canvas)
 
+## Demo
+
+[Click](http://mklan.github.io/mediacropper/)
+
 ## install
 
 `npm install mediacropper`
@@ -47,8 +51,3 @@ const result = mediaCropper.cropMedia(document.getElementById('pic'), {
 
 you can access the dimension data (position and size) through `result.dimensions`. if the source
 ist a video you get the current time via `result.currentTime`
-
-
-##Demo
-
-[Click](http://matthiasklan.github.io/mediacropper/)
